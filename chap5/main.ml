@@ -9,7 +9,7 @@ let () =
     { first_name = "Amir"; last_name = "Bc"; age = 26}; 
     { first_name = "Anssam"; last_name = "Ca"; age = 19}; 
     ] in
-  Students.sort_by_age ~order:1 students
+  Students.sort_by_age ~order:Students.ASC students
   |> List.iter 
     ~f:(fun { Students.first_name = first_name; last_name; age } -> 
       (printf "%s | %s | %d\n" first_name last_name age))

@@ -6,6 +6,8 @@ type student = {
   age: int;
 }
 
+type order = ASC | DESC
+
 
 let sort_by_first_name sl = 
   match sl with
@@ -25,7 +27,8 @@ let sort_by_age sl ~order =
   | [] | [_]  -> sl
   | l ->  List.sort 
     ~compare:(fun a b -> 
-                 if order = -1 then Int.descending a.age b.age 
-                 else Int.ascending a.age b.age)
+                 match order with
+                 | DESC ->  Int.descending a.age b.age 
+                 | ASC -> Int.ascending a.age b.age)
     l
   ;;
